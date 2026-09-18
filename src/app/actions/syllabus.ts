@@ -2,7 +2,6 @@
 
 import { auth } from "@/auth";
 import { ai } from "@/lib/ai";
-import pdfParse from "pdf-parse";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { revalidatePath } from "next/cache";
@@ -35,6 +34,7 @@ export async function processSyllabusFile(courseId: string, formData: FormData) 
 
   let text = "";
   if (file.type === "application/pdf") {
+    const pdfParse = require("pdf-parse");
     const pdfData = await pdfParse(buffer);
     text = pdfData.text;
   } else if (file.type === "text/plain") {
@@ -54,9 +54,9 @@ export async function processSyllabusFile(courseId: string, formData: FormData) 
   });
 
   try {
-    // Call Featherless AI to extract structured tasks
+    // Call Gemini AI to extract structured tasks
     const response = await ai.chat.completions.create({
-      model: "meta-llama/Meta-Llama-3.1-70B-Instruct", // Featherless available model
+      model: "gemini-1.5-flash",
       messages: [
         {
           role: "system",

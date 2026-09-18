@@ -167,7 +167,7 @@ export async function POST(req: NextRequest) {
 
   // Agentic loop: keep running until no more tool calls
   let response = await ai.chat.completions.create({
-    model: "meta-llama/Meta-Llama-3.1-70B-Instruct",
+    model: "gemini-1.5-flash",
     messages: aiMessages,
     tools: PLANNER_TOOLS,
     tool_choice: "auto",
@@ -202,7 +202,7 @@ export async function POST(req: NextRequest) {
     loopMessages.push(...toolResults);
 
     response = await ai.chat.completions.create({
-      model: "meta-llama/Meta-Llama-3.1-70B-Instruct",
+      model: "gemini-1.5-flash",
       messages: loopMessages,
       tools: PLANNER_TOOLS,
       tool_choice: "auto",

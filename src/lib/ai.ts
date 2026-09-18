@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 
 export const ai = new OpenAI({
-  apiKey: process.env.FEATHERLESS_API_KEY || "dummy-key",
-  baseURL: "https://api.featherless.ai/v1", // Featherless API endpoint
+  apiKey: process.env.GEMINI_API_KEY || "dummy-key",
+  baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/", // Google Gemini OpenAI-compatible endpoint
 });

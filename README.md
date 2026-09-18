@@ -1,12 +1,12 @@
 # Simple AI Calendar
 
-An AI-powered academic planner built with Next.js, Prisma, Supabase, and Featherless AI.
+An AI-powered academic planner built with Next.js, Prisma, Supabase, and Google Gemini AI.
 
 ## Features
 
 - **Google Calendar Integration:** Syncs and schedules study sessions directly onto your Google Calendar.
 - **Canvas LMS Integration:** Pulls assignments directly from your Canvas courses.
-- **Syllabus Parsing:** Upload course syllabuses (PDF) and let Featherless AI automatically extract your assignments, exams, and readings.
+- **Syllabus Parsing:** Upload course syllabuses (PDF) and let Gemini AI automatically extract your assignments, exams, and readings.
 - **Deterministic Scheduling Engine:** Automatically finds free time on your calendar and allocates study sessions before your deadlines, respecting your preferences (e.g. "no studying after 8 PM").
 - **AI Planner Interface:** Chat with an agentic AI assistant to tweak your schedule ("Schedule all my homework this week", "Move my chemistry study session to tomorrow").
 
@@ -33,12 +33,12 @@ An AI-powered academic planner built with Next.js, Prisma, Supabase, and Feather
    ```
 6. Set `AUTH_SECRET` in your `.env` (generate using `npx auth secret` or a random string).
 
-### 3. Featherless AI
+### 3. Google Gemini AI
 
-1. Get an API key from [Featherless AI](https://featherless.ai/).
+1. Get an API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
 2. Add it to `.env`:
    ```env
-   FEATHERLESS_API_KEY="your-featherless-api-key"
+   GEMINI_API_KEY="your-gemini-api-key"
    ```
 
 ### 4. Run the app
