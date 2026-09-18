@@ -42,7 +42,7 @@ export function UploadSyllabusDialog({ courseId }: { courseId: string }) {
 
   return (
     <Dialog open={open} onOpenChange={(val) => { setOpen(val); if (!val) { setSuccess(false); setError(""); } }}>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <Button variant="outline" size="sm">Upload Syllabus</Button>
       </DialogTrigger>
       <DialogContent>

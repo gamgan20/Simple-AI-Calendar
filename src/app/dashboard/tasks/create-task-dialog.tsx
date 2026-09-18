@@ -54,7 +54,7 @@ export function CreateTaskDialog({ courses }: { courses: Course[] }) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <Button>Add Task</Button>
       </DialogTrigger>
       <DialogContent>

@@ -184,17 +184,18 @@ export async function POST(req: NextRequest) {
 
     const toolResults = [];
     for (const toolCall of assistantMsg.tool_calls || []) {
+      const tc = toolCall as { id: string; function: { name: string; arguments: string } };
       let args: Record<string, unknown> = {};
       try {
-        args = JSON.parse(toolCall.function.arguments);
+        args = JSON.parse(tc.function.arguments);
       } catch {
         args = {};
       }
 
-      const result = await executeTool(toolCall.function.name, args, userId);
+      const result = await executeTool(tc.function.name, args, userId);
       toolResults.push({
         role: "tool" as const,
-        tool_call_id: toolCall.id,
+        tool_call_id: tc.id,
         content: JSON.stringify(result),
       });
     }

@@ -44,7 +44,7 @@ export function CreateCourseDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <Button>Add Course</Button>
       </DialogTrigger>
       <DialogContent>
